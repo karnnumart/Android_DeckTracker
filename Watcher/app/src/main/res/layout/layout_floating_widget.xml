@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!--Root container-->
+
+    <RelativeLayout
+        android:id="@+id/root_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <!--View while view is collapsed-->
+
+        <RelativeLayout
+            android:id="@+id/collapse_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <!--Icon of floating widget -->
+            <ImageView
+                android:id="@+id/collapsed_iv"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_android_circle"
+                tools:ignore="ContentDescription" />
+
+            <!--Close button-->
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/expanded_container"
+            android:layout_width="1320px"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            tools:visibility="visible">
+
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="660px"
+                android:layout_height="match_parent"
+                android:background="@android:color/holo_red_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </ListView>
+
+            <ListView
+                android:id="@+id/enemy_list"
+                android:layout_width="660px"
+                android:layout_height="match_parent"
+                android:background="@android:color/holo_red_dark"
+                app:layout_constraintStart_toEndOf="@+id/list" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--View while view is expanded-->
+
+    </RelativeLayout>
+
+</FrameLayout>
